@@ -1,0 +1,8 @@
+[04-Dec-2018 01:17:24 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/ekonomi8/public_html/profileAba/app/Http/routes.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ekonomi8/public_html/profileAba/app/Http/routes.php on line 17
+[04-Dec-2018 01:17:24 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/ekonomi8/public_html/profileAba/app/Http/routes.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ekonomi8/public_html/profileAba/app/Http/routes.php on line 17

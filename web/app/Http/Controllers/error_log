@@ -1,0 +1,2 @@
+[04-Dec-2018 01:17:33 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/ekonomi8/public_html/profileAba/app/Http/Controllers/UserController.php on line 17
+[04-Dec-2018 01:17:34 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/ekonomi8/public_html/profileAba/app/Http/Controllers/UserController.php on line 17
