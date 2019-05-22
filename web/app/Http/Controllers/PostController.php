@@ -91,6 +91,7 @@ class PostController extends Controller
             $header             = HeaderImage::where('post_id',$id)->first();
 
             //delete old image
+            
             $url = public_path().'/'.$header->name;
             File::delete($url);
 
@@ -121,8 +122,9 @@ class PostController extends Controller
 
     public function getPreviewPost($id){
         $post = Post::find($id);
+        $header = HeaderImage::where('post_id',$id)->first();
         $modul = "manage";
-        return view('user.peview_post')->with(['post'=> $post, 'modul' => $modul]);
+        return view('user.peview_post')->with(['post'=> $post, 'modul' => $modul, 'header' => $header]);
     }
 
     public function getImage(){
@@ -276,7 +278,7 @@ class PostController extends Controller
         ]);
 
         $pdf = pdf::find($req->input('id'));
-        $pdf->image_url           = $req->input('url');
+        $pdf->image_url     = $req->input('url');
         $pdf->description   = $req->input('description');
         $pdf->title         = $req->input('title');
         $pdf->save();

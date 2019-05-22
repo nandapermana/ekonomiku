@@ -30,7 +30,7 @@
                    @foreach($post as $p)
                         <li>
                             <a href="{{route('readBlog',['id' => $p->id])}}">
-                                <figure style="background:url({{$p->image_url}}); background-position: center right"></figure>
+                                <figure style="background:url({{ URL::to('/') }}/{{$p->headerImage[0]->name}}); background-position: center right"></figure>
                                 <h4>{{$p->title}}</h4>
                                 <p>
                                     {{ strip_tags( mb_substr($p->body, 0, 100) )  }} ...

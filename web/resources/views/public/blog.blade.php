@@ -27,7 +27,7 @@
                             <div class="overlay" data-aos="fade-up" data-aos-duration="1000">
                                 <a href="{{route('readBlog',['id'=> $post->id] )}}" class="blog-container">
                                     <div class="blog-img">
-                                        <figure><img src="{{$post->image_url}}" alt="img" class="img-fluid"></figure>
+                                        <figure><img src="{{ URL::to('/') }}/{{$post->headerImage[0]->name}}" alt="img" class="img-fluid"></figure>
                                         <div class="blog-img-inner"></div>
                                     </div>
                                     <h5>

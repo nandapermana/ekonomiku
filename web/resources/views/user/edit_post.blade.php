@@ -57,7 +57,9 @@
               <div class="form-group">
                 <label >Upload Header Image</label> <small>(Must be .jpeg or .png , max: 2500 x 2500 px)</small>
                 <input type="file" class="form-control-file" name="header_image">
-                <img src="{{ URL::to('/') }}/{{$header->name}}"></img>
+                @if($header !== null)
+                  <img src="{{ URL::to('/') }}/{{$header->name}}"></img>
+                @endif
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Text</label>

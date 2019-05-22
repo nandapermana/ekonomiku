@@ -13,6 +13,7 @@ use DB;
 use App\BlogComment;
 use App\Repositories\Repository;
 use App\Ads;
+use App\HeaderImage;
 
 class WebController extends Controller
 {
@@ -27,8 +28,8 @@ class WebController extends Controller
    }
 
     public function getIndex(){
-        $modul = 'index';
-        $post  = $this->getOffset('post',0,2);
+        $modul   = 'index';
+        $post = Post::skip(0)->take(2)->with('headerImage')->orderBy('post' .'.id','DESC')->get();
         $sixpost = $this->getOffset('post',0,6);
         $whereClause = ['value'  => 'id',
                         'clause' => '!=',
@@ -36,7 +37,6 @@ class WebController extends Controller
         $file  = $this->getOffset('files',0,6, $whereClause);
         $pdf   = $this->getOffset('pdf',0,2);
         $ads   = Ads::all();
-
     	return view('public.index')->with([ 'post'   => $post,
                                             'img'    => $file,
                                             'pdf'    => $pdf,
@@ -82,7 +82,7 @@ class WebController extends Controller
         $page         = (int)$page;
         $limit        = 6;
         $offset       = ($limit * ($page-1));
-    	$post         = $this->getOffset('post',$offset,$limit);
+        $post         = Post::skip($offset)->take($limit)->with('headerImage')->orderBy('post' .'.id','DESC')->get();
         $count        = $this->countPost();
         $totalPage    = (int)ceil($count/$limit);
         $pageControl  = [ 'nextPage' =>null,

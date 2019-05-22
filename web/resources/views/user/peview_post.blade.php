@@ -49,7 +49,11 @@
           <h1>Preview Post</h1>
           <h4>Created at : {{$post->created_at}}</h4>
           <hr>
-          <img src="{{$post->image_url}}">
+          @if($post->image_url !== null)
+            <img src="{{$post->image_url}}">
+          @else
+            <img src="{{ URL::to('/') }}/{{$header->name}}">
+          @endif
           <h2>{{$post->title}}</h2>
            {!! $post->body !!}.
         </div>
