@@ -37,7 +37,7 @@
     <div class="overlay">
         <a href="blogsingle.html">
             <div class="blog-img" data-aos="fade-up" data-aos-duration="1200">
-                <img src="{{$post->image_url}}" alt="blog-single" class="img-fluid w-100">
+                <img src="{{ URL::to('/') }}/{{$header->name}}" alt="blog-single" class="img-fluid w-100">
                 <div class="blog-img-inner"></div>
             </div>
         </a>

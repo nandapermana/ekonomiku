@@ -76,6 +76,10 @@
                             <label for="exampleFormControlTextarea1">Description</label>
                             <textarea class="form-control" name="description" rows="3">{{$user->description}}</textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Quote</label>
+                            <textarea class="form-control" name="quote" rows="3">{{$user->quote}}</textarea>
+                        </div>
                         <button type="submit" class="btn btn-primary mb-2">Update</button>
                         {{ csrf_field() }}
                     </form>

@@ -8,7 +8,7 @@
 
 <section class="banner">
     <div class="container" data-aos="fade-up" data-aos-duration="1000">
-        <h6>Walau huruf habislah sudah, alifbataku belum sebatas Allah..<br> -Soetardji CB-</h6>
+        <h6>{{$quote}}</h6>
         <br><br><br><br><br><br><br><br>
     </h6>
     </div>

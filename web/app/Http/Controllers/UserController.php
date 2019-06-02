@@ -89,6 +89,7 @@ class UserController extends Controller
         Auth::user()->name           = $request->input('name');
         Auth::user()->email          = $request->input('email');
         Auth::user()->description    = $request->input('description');
+        Auth::user()->quote          = $request->input('quote');
         Auth::user()->save();
         $message = "Profile updated";
         return redirect()->route('dashboard.landing')->with(['success_message'=> $message]);

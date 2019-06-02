@@ -13,4 +13,8 @@ class Post extends Model
     {
     	return $this->hasMany('App\HeaderImage','post_id');
     }
+
+    public function getOnlyImage(){
+    	return $this->hasOne('App\HeaderImage');
+    }
 }

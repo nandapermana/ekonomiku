@@ -29,6 +29,7 @@ class WebController extends Controller
 
     public function getIndex(){
         $modul   = 'index';
+        $quote   = User::find(1)->quote;
         $post = Post::skip(0)->take(2)->with('headerImage')->orderBy('post' .'.id','DESC')->get();
         $sixpost = $this->getOffset('post',0,6);
         $whereClause = ['value'  => 'id',
@@ -43,6 +44,7 @@ class WebController extends Controller
                                             'modul'  => $modul,
                                             'sixpost'=> $sixpost,
                                             'ads'    => $ads,
+                                            'quote'  => $quote,
                                          ]);
     }
 
@@ -122,13 +124,15 @@ class WebController extends Controller
     public function getReadBlog($id)
     {
         $post = Post::find($id);
+        $header = Post::find($id)->getOnlyImage;
         $comment = BlogComment::where('blog_id',$id)->get();
         $modul = 'blog';
         $user  = User::find($post->user_id);
         return view('public.blogsingle')->with(['modul' => $modul,
                                                 'post'  => $post,
                                                 'author'=> $user->name,
-                                                'comment'=> $comment]);
+                                                'header'=> $header,
+                                                'comment'=>$comment]);
     }
 
     public function postBlogComment( Request $request , $blogId){
